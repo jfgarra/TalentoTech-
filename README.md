@@ -4,7 +4,7 @@ Despliegue de una arquitectura altamente disponible y escalable en AWS.
 ## Planificación
 
 ### Requerimientos
-* Requerimiento 1
+* 
 *  Desarrollar la plataforma web que permita a los clientes explorar los diferentes libros.
 *  Se debe configurar toda la plataforma en una región y en este caso se trata de la region de North Virginia
 *  se configura una VPC (IP 172.16.0.0/16) en donde se montaran las diferentes instancias, subredes y servicios
@@ -27,4 +27,9 @@ Despliegue de una arquitectura altamente disponible y escalable en AWS.
 * Se debe configurar un Aplication Load Balancer para distribuir las cargas entre los diferentes zonas de disponibilidad y el cual que permite el ingreso de los usuarios a travez del Nat GetWay directamente a la pagina web
 *
 * Se deben configurar varios Segurity Groups para permitir accesos a las diferentes partes del sistema utilizando diferentes puertos de comunicación
-* Segurity groups para 
+* Segurity groups para Acceso de Usuarios a la Pagina Web sg-book-ws (Instancias de los WEB SERVER) Reglas: TCP 22 y TCP 5000
+*
+* Segurity groups para Acceso de Administradores a la Base de datos sg-db (Base de Datos RDS) Reglas:  TCP 22 y TCP 3306
+*
+*
+* La instancia EC2 debe poder conectarse a la base de datos en la subred privada. Para facilitar esta conexión se implementarán parámetros de conexión de la base de datos en el AWS System Manager Parameter Store, garantizando acceso seguro y eficiente a los datos almacenados.
