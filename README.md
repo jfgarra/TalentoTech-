@@ -4,7 +4,7 @@ Despliegue de una arquitectura altamente disponible y escalable en AWS.
 ## Planificación
 
 ### Requerimientos
-* 
+#### Funcionales
 *  Desarrollar la plataforma web que permita a los clientes explorar los diferentes libros.
 *  Se debe configurar toda la plataforma en una región y en este caso se trata de la region de North Virginia
 *  se configura una VPC (IP 172.16.0.0/16) en donde se montaran las diferentes instancias, subredes y servicios
@@ -33,7 +33,14 @@ Despliegue de una arquitectura altamente disponible y escalable en AWS.
 *
 *
 * La instancia EC2 debe poder conectarse a la base de datos en la subred privada. Para facilitar esta conexión se implementarán parámetros de conexión de la base de datos en el AWS System Manager Parameter Store, garantizando acceso seguro y eficiente a los datos almacenados.
-
+*
+*
+#### NO Funcionales
+*
+* La pagina Esta desarrollada en python mediante el framework Flask
+* El motor de base de datos de nuestro servidor web es mariadb
+*
+*  
 ### Diagrama (Arquitectura)
 
 En la siguiente imagen se muestra el diseño de la arquitectura a partir de los requerimientos. 
