@@ -37,4 +37,4 @@ Despliegue de una arquitectura altamente disponible y escalable en AWS.
 ### Diagrama (Arquitectura)
 
 En la siguiente imagen se muestra el diseño de la arquitectura a partir de los requerimientos. 
-![arquitectura aws](TalentoTech-G2/Arquitectura.png)
+![arquitectura aws](img/Arquitectura.png)
