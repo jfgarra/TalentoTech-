@@ -33,3 +33,8 @@ Despliegue de una arquitectura altamente disponible y escalable en AWS.
 *
 *
 * La instancia EC2 debe poder conectarse a la base de datos en la subred privada. Para facilitar esta conexión se implementarán parámetros de conexión de la base de datos en el AWS System Manager Parameter Store, garantizando acceso seguro y eficiente a los datos almacenados.
+
+### Diagrama (Arquitectura)
+
+En la siguiente imagen se muestra el diseño de la arquitectura a partir de los requerimientos. 
+![arquitectura aws](TalentoTech-G2/Arquitectura.png)
