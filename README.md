@@ -62,7 +62,5 @@ En la siguiente imagenes se muestra la tabla roles para acceder a los servicios 
 En la siguiente imagenes se muestra el estimado de los costos y se indican los diferentes servicios que se utilizan:
 ![arquitectura aws](img/EstimadoCostos.png)
 
-La documentación completa se encuentra en el archivo [Docs/Estimado - Calculadora de precio.pdf](https://github.com/usuario/repositorio/blob/main/Docs/Estimado - Calculadora de precio.pdf).
+La documentación completa se encuentra en el archivo [Docs/EstimadoCostoAWS.pdf](https://github.com/jfgarra/TalentoTech-G2/Docs/EstimadoCostoAWS.pdf).
 
-Para más detalle el archivo adjunto muestra la información correspondiente:
-![arquitectura aws](Docs/Estimado- Calculadora de precios de AWS.pdf)
