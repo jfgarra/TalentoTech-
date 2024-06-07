@@ -45,3 +45,16 @@ Despliegue de una arquitectura altamente disponible y escalable en AWS.
 
 En la siguiente imagen se muestra el diseño de la arquitectura a partir de los requerimientos. 
 ![arquitectura aws](img/Arquitectura.png)
+
+### Diagrama Grant
+
+En la siguiente imagenes se muestran el diagrama grant y define los tiempos de ejecución del proyecto. 
+![arquitectura aws](img/Grant-G2.png)
+
+
+### Diagrama Roles
+
+En la siguiente imagenes se muestra la tabla roles para acceder a los servicios del sistema
+![arquitectura aws](img/Rol.png)
+
+
