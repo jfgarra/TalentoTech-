@@ -57,7 +57,12 @@ En la siguiente imagenes se muestran el diagrama grant y define los tiempos de e
 En la siguiente imagenes se muestra la tabla roles para acceder a los servicios del sistema
 ![arquitectura aws](img/Rol.png)
 
-#### Estimado Costos
+#### ESTIMADO COSTOS
 *
 En la siguiente imagenes se muestra el estimado de los costos y se indican los diferentes servicios que se utilizan:
 ![arquitectura aws](img/EstimadoCostos.png)
+
+La documentación completa se encuentra en el archivo [Docs/Estimado - Calculadora de precio.pdf](https://github.com/usuario/repositorio/blob/main/Docs/Estimado - Calculadora de precio.pdf).
+
+Para más detalle el archivo adjunto muestra la información correspondiente:
+![arquitectura aws](Docs/Estimado- Calculadora de precios de AWS.pdf)
