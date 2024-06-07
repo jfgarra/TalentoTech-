@@ -57,4 +57,7 @@ En la siguiente imagenes se muestran el diagrama grant y define los tiempos de e
 En la siguiente imagenes se muestra la tabla roles para acceder a los servicios del sistema
 ![arquitectura aws](img/Rol.png)
 
-
+#### Estimado Costos
+*
+En la siguiente imagenes se muestra el estimado de los costos y se indican los diferentes servicios que se utilizan:
+![arquitectura aws](img/EstimadoCostos.png)
