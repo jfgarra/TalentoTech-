@@ -91,6 +91,7 @@ pasado. Cuando trabajamos con infraestructura como código.
 - Paso 8
 - Configuramos el pipeline, en aws es codePipeline. Esto con el fin de que si se da un
 push, la infraestructura se desplegará automáticamente.
+![arquitectura aws](img/Paso8pipeline.png)
 - 
   
 
