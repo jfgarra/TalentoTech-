@@ -67,7 +67,8 @@ La documentación completa se encuentra en el archivo [Docs/EstimadoCostoAWS.pdf
 #### PASOS PRINCIPALES PARA LA INSTALACION DE LA PLATAFORMA
 * Partimos de las plantilla que conforman la infraestructura en donde esta todo el código requerido:
 * Archivos YML:
-*    Application.yml [Code/application.yml](https://github.com/jfgarra/TalentoTech-G2/blob/main/Code/application.yml).
+*    Application.yml [application.yml](https://github.com/jfgarra/TalentoTech-G2/blob/main/Code/application.yml).
+*    network.yml [network.yml](https://github.com/jfgarra/TalentoTech-G2/blob/main/Code/network.yml).
 *    
 
 
