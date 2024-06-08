@@ -99,8 +99,12 @@ El nombre del repositorio y La rama
 ![arquitectura aws](img/Paso9pipeline.png)
 ![arquitectura aws](img/Paso9apipeline.png)
   
-
-
+- 10 Pasos para el Deploy (verificar ajuste)
+AWS Cloudformation
+● La región
+● Create or update a stack
+● Stack name: Según cómo esté configurado en el template, como el archivo base se
+llamó "aws-stack" se utiliza este nombre.
 
 
 
