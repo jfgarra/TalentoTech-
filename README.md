@@ -105,8 +105,8 @@ AWS Cloudformation
 ● Create or update a stack
 ● Stack name: Según cómo esté configurado en el template, como el archivo base se
 llamó "aws-stack" se utiliza este nombre.
-
-![arquitectura aws](img/Paso10Stack.png)
+-
+![arquitectura aws](img/Paso10Stak.png)
 
 
 
