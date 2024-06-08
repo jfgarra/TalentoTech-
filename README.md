@@ -78,8 +78,20 @@ La documentación completa se encuentra en el archivo [Docs/EstimadoCostoAWS.pdf
 - ```aws codecommit get-repository --repository-name infraestructura-aws```
 - Paso 3
 - ```aws codecommit get-repository --repository-name infraestructura-aws```
-- Paso  Ahora se clona el repositorio, para obtener la carpeta a trabajar
+- Paso 4  Ahora se clona el repositorio, para obtener la carpeta a trabajar
 - ```git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/infraestructura-aws```
+- Paso 5
+- Creo el archivo network.yml con las configuraciones que ya teníamos del proyecto
+pasado. Cuando trabajamos con infraestructura como código.
+- Paso 6 Validación del Template
+- ```aws cloudformation validate-template --template-body file://network.yml```
+- Paso 7
+- Realizamos el push al repositorio (add. , git commit, git push)
+- ```git push codecommit::us-east-1://infraestructura-aws```
+- Paso 8
+- Configuramos el pipeline, en aws es codePipeline. Esto con el fin de que si se da un
+push, la infraestructura se desplegará automáticamente.
+- 
   
 
 
