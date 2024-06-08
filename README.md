@@ -67,4 +67,4 @@ La documentación completa se encuentra en el archivo [Docs/EstimadoCostoAWS.pdf
 #### PRUEBA PASO A PASO ARCHIVO .DOC
 *
 LINK ARCHIVO .DOC
-La documentación completa se encuentra en el archivo [Docs/CreaciónInstancia_DB.docx](https://github.com/jfgarra/TalentoTech-G2/blob/main/Docs/CreaciónInstancia_DB.docx).
+La documentación completa se encuentra en el archivo [Docs/CreaInstancia_DB.pdf](https://github.com/jfgarra/TalentoTech-G2/blob/main/Docs/CreaInstancia_DB.pdf).
