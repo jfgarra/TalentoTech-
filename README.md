@@ -69,15 +69,44 @@ La documentación completa se encuentra en el archivo [Docs/EstimadoCostoAWS.pdf
 *  Archivos YML:
 *    Application.yml [application.yml](https://github.com/jfgarra/TalentoTech-G2/blob/main/Code/application.yml).
 *    network.yml [network.yml](https://github.com/jfgarra/TalentoTech-G2/blob/main/Code/network.yml).
-*  Se debe crear un ambiente en aws Cloud9
+*
+*    Se debe crear un ambiente en aws Cloud9
 *  Abrir los archivos .yml dentro de la instancia Cloud9
+- paso 1
+- ```aws codecommit create-repository --repository-name infraestructura-aws --repository-description "crear infraestructura en aws"```
+- Paso 2
+- ```aws codecommit get-repository --repository-name infraestructura-aws```
+- Paso 3
+- ```aws codecommit get-repository --repository-name infraestructura-aws```
+- Paso  Ahora se clona el repositorio, para obtener la carpeta a trabajar
+- ```git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/infraestructura-aws```
+  
+
+
+
+
+
+
+
+
+
+
 *  Validar los templates en la consola (ver que no hay errores de sintaxis)
 *    Comando: aws cloudformation validate-template --template-body file://aws-stack.yml
 *  Ejecutar la creación de la infraestructura utilizando los servicios de cloudformation
-*    Comando: aws cloudformation create-stack --stack-name aws-stack --template-body file://aws-stack.yml  
+*    Comando: aws cloudformation create-stack --stack-name aws-stack --template-body file://aws-stack.yml
+
+*   Almacenar los templates en el servicio codecommit
+
+*   Configurar el Pipeline
+
+*   verificar si se realiza el despliegue de la infraestructura
+*      Utilizando browser
+
+*  realizar monitoreo para ver como se comporta la aplicacción  
 
 
-
+#### PASO a Detallado PARA LA INSTALACION DE LA PLATAFORMA
 #### PRUEBA PASO A PASO ARCHIVO .DOC
 *
 LINK ARCHIVO .DOC
