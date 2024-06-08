@@ -64,7 +64,18 @@ En la siguiente imagenes se muestra el estimado de los costos y se indican los d
 
 La documentación completa se encuentra en el archivo [Docs/EstimadoCostoAWS.pdf](https://github.com/jfgarra/TalentoTech-G2/blob/main/Docs/EstimadoCostoAWS.pdf).
 
+#### PASOS PRINCIPALES PARA LA INSTALACION DE LA PLATAFORMA
+* Partimos de las plantilla que conforman la infraestructura en donde esta todo el código requerido:
+* Archivos YML:
+*    Application.yml
+*    
+
+
+
 #### PRUEBA PASO A PASO ARCHIVO .DOC
 *
 LINK ARCHIVO .DOC
 La documentación completa se encuentra en el archivo [Docs/CreaInstancia_DB.pdf](https://github.com/jfgarra/TalentoTech-G2/blob/main/Docs/CreaInstancia_DB.pdf).
+
+#### PRUEBA PASO A PASO ARCHIVO .DOC
+*
