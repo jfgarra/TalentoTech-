@@ -92,7 +92,9 @@ pasado. Cuando trabajamos con infraestructura como código.
 - Configuramos el pipeline, en aws es codePipeline. Esto con el fin de que si se da un
 push, la infraestructura se desplegará automáticamente.
 ![arquitectura aws](img/Paso8pipeline.png)
-- 
+- Paso 9
+- items que se deben seleccionar: fuente del pipeline y seleccionamos codecommit
+El nombre del repositorio y La rama
   
 
 
