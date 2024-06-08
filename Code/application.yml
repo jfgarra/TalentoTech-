@@ -1,0 +1,241 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Resources:
+#Create the SG for instance
+    
+  SGbookPublic:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow connection through SSH
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 5000
+          ToPort: 5000
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: sg-book-ws
+      VpcId:
+        Fn::ImportValue:
+            !Sub "aws-stack-VPCID"
+
+  #Create the SG for instance in subnet private
+  SGbookPrivate:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow connection through SSH and HTTP for instance un subnet private
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          SourceSecurityGroupId: !GetAtt SGbookPublic.GroupId
+        - IpProtocol: tcp
+          FromPort: 5000
+          ToPort: 5000
+          SourceSecurityGroupId: !GetAtt SGalb.GroupId
+      Tags:
+        - Key: Name
+          Value: sg-book-private
+      VpcId:
+        Fn::ImportValue:
+            !Sub "aws-stack-VPCID"
+
+  #Create the SG for ALB
+  SGalb:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow connection through HTTP
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0     
+      Tags:
+        - Key: Name
+          Value: sg-alb
+      VpcId:
+        Fn::ImportValue:
+            !Sub "aws-stack-VPCID"
+
+
+  #Create the SG for DB
+  SGdb:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow connection through SSH and MYSQL for DB in subnet private
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          SourceSecurityGroupId: !GetAtt SGbookPrivate.GroupId
+      Tags:
+        - Key: Name
+          Value: sg-db
+      VpcId:
+        Fn::ImportValue:
+            !Sub "aws-stack-VPCID"
+
+  #Create the instance
+  bookWSpublic:
+    Type: AWS::EC2::Instance
+    Properties:
+      AvailabilityZone: us-east-1a
+      ImageId: ami-0bb84b8ffd87024d8
+      InstanceType: t2.micro
+      IamInstanceProfile: LabInstanceProfile
+      KeyName: vockey
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: true
+          DeviceIndex: 0
+          SubnetId:
+            Fn::ImportValue:
+                !Sub "aws-stack-PublicSubnetA"
+          GroupSet:
+            - Ref: SGbookPublic       
+      Tags:
+        - Key: Name
+          Value: book-ws-public
+      UserData: 
+        Fn::Base64: !Sub | 
+          #!/bin/bash
+          sudo dnf install -y python3.9-pip
+          pip install virtualenv
+          sudo dnf install -y mariadb105-server
+          sudo service mariadb start
+          sudo chkconfig mariadb on
+          pip install flask
+          pip install mysql-connector-python
+          pip install boto3
+          wget https://jav-bucket-web.s3.amazonaws.com/python-db-ssm.zip          
+          wget https://jav-bucket-web.s3.amazonaws.com/databases.zip
+          sudo unzip python-db-ssm.zip
+          sudo unzip databases.zip 
+          sudo mv python-db-ssm databases /home/ec2-user
+          wget https://jav-bucket-web.s3.amazonaws.com/bookapp.service
+          sudo mv bookapp.service /etc/systemd/system
+          sudo systemctl daemon-reload
+          sudo systemctl start bookapp
+          sudo systemctl enable bookapp  
+        
+
+  ##Create a launch Template
+  LaunchTemplateBook:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateData:
+        IamInstanceProfile: 
+          Name: LabInstanceProfile   
+        ImageId: ami-0bb84b8ffd87024d8
+        KeyName: vockey
+        InstanceType: t2.micro
+        SecurityGroupIds: 
+          - Ref: SGbookPrivate  
+        UserData: 
+          Fn::Base64: !Sub | 
+            #!/bin/bash
+            sudo dnf install -y python3.9-pip
+            pip install virtualenv
+            sudo dnf install -y mariadb105-server
+            sudo service mariadb start
+            sudo chkconfig mariadb on
+            pip install flask
+            pip install mysql-connector-python
+            pip install boto3
+            wget https://jav-bucket-web.s3.amazonaws.com/python-db-ssm.zip
+            wget https://jav-bucket-web.s3.amazonaws.com/databases.zip
+            sudo unzip python-db-ssm.zip
+            sudo unzip databases.zip 
+            sudo mv python-db-ssm databases /home/ec2-user
+            wget https://jav-bucket-web.s3.amazonaws.com/bookapp.service
+            sudo mv bookapp.service /etc/systemd/system
+            sudo systemctl daemon-reload
+            sudo systemctl start bookapp
+            sudo systemctl enable bookapp       
+      LaunchTemplateName: lt-book 
+
+  ##Create the Application Load Balancer
+  ALBbook:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: alb-cafe
+      Scheme: internet-facing
+      SecurityGroups: 
+        - Ref: SGalb
+      Subnets: 
+        - Fn::ImportValue: !Sub "aws-stack-PublicSubnetA"
+        - Fn::ImportValue: !Sub "aws-stack-PublicSubnetB"
+      Type: application
+
+  #Create the target group
+  TGelb:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      HealthCheckEnabled: true
+      HealthCheckPath: /health
+      Name: tg-wsbook
+      Port: 5000
+      Protocol: HTTP
+      TargetType: instance
+      VpcId: 
+        Fn::ImportValue:
+            !Sub "aws-stack-VPCID"
+
+  #Create a listener for ALB
+  ListenerALB:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: 
+        Ref: ALBbook
+      Port: 80
+      Protocol: HTTP 
+      DefaultActions:
+        - Type: forward 
+          TargetGroupArn: 
+            Ref: TGelb  
+  
+  #Create the Auto Scaling group
+  ASGbook:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      AutoScalingGroupName: asg-book
+      DesiredCapacity: 2
+      MaxSize: 4
+      MinSize: 2
+      LaunchTemplate: 
+        LaunchTemplateId: 
+          Ref: LaunchTemplateBook          
+        Version: !GetAtt LaunchTemplateBook.LatestVersionNumber
+      TargetGroupARNs: 
+        - Ref: TGelb
+      VPCZoneIdentifier: 
+        - Fn::ImportValue: !Sub "aws-stack-PrivateSubnetA"
+        - Fn::ImportValue: !Sub "aws-stack-PrivateSubnetB"
+
+  #Create the Scaling policy
+  ScalingPolicyASG:
+    Type: AWS::AutoScaling::ScalingPolicy
+    Properties:
+      AutoScalingGroupName: 
+        Ref: ASGbook
+      PolicyType: TargetTrackingScaling
+      TargetTrackingConfiguration: 
+        PredefinedMetricSpecification: 
+          PredefinedMetricType: ASGAverageCPUUtilization
+        TargetValue: 25
+
+Outputs:
+    bookALB:
+        Description: DNS of ALB
+        Value: !GetAtt ALBbook.DNSName
+        Export:
+            Name: !Sub "aws-stack-book-ws-alb"
+    SGdb:
+        Description: SG for DB
+        Value:
+            Ref: SGdb
+        Export:
+            Name: !Sub "aws-stack-SGdb"
