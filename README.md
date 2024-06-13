@@ -132,10 +132,18 @@ llamó "aws-stack" se utiliza este nombre.
  - Continuacion se presentan las imagenes con la información del parameter Store:
  - 
    ![arquitectura aws](img/PasoSMParmeter.png)
+
    ![arquitectura aws](img/PasoSMPaDatabase.png)
+
    ![arquitectura aws](img/PasoSMPaHost.png)
+ 
    ![arquitectura aws](img/PasoSMPaPass.png)
+ 
    ![arquitectura aws](img/PasoSMPaUser.png)
+
+ Es necesario crear un roll en el servicio AWS IAM el cuarl tiene las siguientes politicas:
+
+  ![arquitectura aws](img/Paso11RoleEC2Role.png)
  
  
 
