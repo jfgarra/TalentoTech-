@@ -111,7 +111,10 @@ llamó "aws-stack" se utiliza este nombre.
 -
 ![arquitectura aws](img/Paso10Stak.png)
 
+- más abajo se pedirá un rol por lo que tendremos que crearlo.
 
+![arquitectura aws](img/Paso10Trusted.png)
+ 
 
 
 
