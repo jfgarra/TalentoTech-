@@ -119,8 +119,16 @@ llamó "aws-stack" se utiliza este nombre.
 - los Servicios:
 
 - ![arquitectura aws](img/Paso10Permissions.png)
--
+- Se selecciona en la creación del Pipeline el role creado
+- 
 ![arquitectura aws](img/Paso10Rolename.png)
+
+- ya quedó configurado y se dá "Create"
+
+![arquitectura aws](img/Paso10Success.png)
+ -
+ -
+ Se debe configurar el System Manager el cual es un servicio AWS
  
 
 
