@@ -72,23 +72,23 @@ La documentación completa se encuentra en el archivo [Docs/EstimadoCostoAWS.pdf
 *    Se debe crear un ambiente en aws Cloud9
 *  Abrir los archivos .yml dentro de la instancia Cloud9
 - paso 1
-- ```aws codecommit create-repository --repository-name infraestructura-aws --repository-description "crear infraestructura en aws"```
+ ```aws codecommit create-repository --repository-name infraestructura-aws --repository-description "crear infraestructura en aws"```
 - Paso 2
-- ```aws codecommit get-repository --repository-name infraestructura-aws```
+ ```aws codecommit get-repository --repository-name infraestructura-aws```
 - Paso 3
-- ```aws codecommit get-repository --repository-name infraestructura-aws```
+ ```aws codecommit get-repository --repository-name infraestructura-aws```
 - Paso 4  Ahora se clona el repositorio, para obtener la carpeta a trabajar
-- ```git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/infraestructura-aws```
+ ```git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/infraestructura-aws```
 - Paso 5
-- Creo el archivo network.yml con las configuraciones que ya teníamos del proyecto
+- Crear el archivo network.yml con las configuraciones que ya estaban del proyecto
 pasado. Cuando trabajamos con infraestructura como código.
 - Paso 6 Validación del Template
-- ```aws cloudformation validate-template --template-body file://network.yml```
+  ```aws cloudformation validate-template --template-body file://network.yml```
 - Paso 7
-- Realizamos el push al repositorio (add. , git commit, git push)
-- ```git push codecommit::us-east-1://infraestructura-aws```
+- Realizar el push al repositorio (add. , git commit, git push)
+ ```git push codecommit::us-east-1://infraestructura-aws```
 - Paso 8
-- Configuramos el pipeline, en aws es codePipeline. Esto con el fin de que si se da un
+- Configuración del pipeline, en aws es codePipeline. Esto con el fin de que si se da un
 push, la infraestructura se desplegará automáticamente.
 ![arquitectura aws](img/Paso8pipeline.png)
 - Paso 9
@@ -99,6 +99,7 @@ El nombre del repositorio y La rama
 ![arquitectura aws](img/Paso9apipeline.png)
 
 - Se requiere el nombre del stack que aparece en archivo application.yml "aws-stack"
+
 - 10 Pasos para el Deploy (verificar ajuste)
 ![arquitectura aws](img/Paso10Deploy.png)
 
@@ -110,14 +111,14 @@ llamó "aws-stack" se utiliza este nombre.
 -
 ![arquitectura aws](img/Paso10Stak.png)
 
-- más abajo se pedirá un rol por lo que tendremos que crearlo.
+ más abajo se pedirá un rol por lo que tendremos que crearlo.
 
 ![arquitectura aws](img/Paso10Trust.png)
 
--Creacion de un Role llamado RolePipeline
-- los Servicios:
+Creacion de un Role llamado RolePipeline
+los Servicios:
 
-- ![arquitectura aws](img/Paso10Permissions.png)
+ ![arquitectura aws](img/Paso10Permissions.png)
 - Se selecciona en la creación del Pipeline el role creado
 - 
 ![arquitectura aws](img/Paso10Rolename.png)
