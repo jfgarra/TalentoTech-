@@ -97,7 +97,8 @@ push, la infraestructura se desplegará automáticamente.
 El nombre del repositorio y La rama
 - Se muestran las ventanas de la creacion del Pipeline
 ![arquitectura aws](img/Paso9pipeline.png)
-![arquitectura aws](img/Paso9apipeline.png)
+
+![arquitectura aws](img/Paso10Deploy.png)
 
 - Se requiere el nombre del stack que aparece en archivo application.yml "aws-stack"
 - 10 Pasos para el Deploy (verificar ajuste)
