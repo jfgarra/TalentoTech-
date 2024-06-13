@@ -164,7 +164,7 @@ En el historial del pipeline creado se ve el despliegue automatico de los cambio
 
 
 *
-*
+*Monitoreo de la Infraestructura AWSCloudWatch
 *
 *
 
