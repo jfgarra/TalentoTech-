@@ -154,7 +154,7 @@ IamInstanceProfile:
 Se utilizará para la autenticación segura y el acceso a instancias de Amazon EC2       
  Con lo anterior actualizado en el template, proseguimos con el comando de codecommit para actualizar el repositorio donde se aloja nuestra infraestructura
  
-*git push codecommit::us-east-1://infraestructura-aws
+```git push codecommit::us-east-1://infraestructura-aws```
 
 ![arquitectura aws](img/Paso11RoleTemplate.png)
 
