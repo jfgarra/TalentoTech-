@@ -149,7 +149,9 @@ llamó "aws-stack" se utiliza este nombre.
 IamInstanceProfile: 
           Name: ec2RoleWs
 
-  Se realiza el mismo paso en el PipeLine         
+![arquitectura aws](img/PasoCreateKeyPair.png)
+
+Se utilizará para la autenticación segura y el acceso a instancias de Amazon EC2       
  
 
 
