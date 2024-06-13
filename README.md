@@ -114,7 +114,8 @@ llamó "aws-stack" se utiliza este nombre.
 - más abajo se pedirá un rol por lo que tendremos que crearlo.
 
 ![arquitectura aws](img/Paso10Trust.png)
-
+-Creacion de un Role llamado RolePipeline
+- los Servicios:
 
  
 
