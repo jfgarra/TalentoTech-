@@ -158,6 +158,15 @@ Se utilizará para la autenticación segura y el acceso a instancias de Amazon E
 
 ![arquitectura aws](img/Paso11RoleTemplate.png)
 
+En el historial del pipeline creado se ve el despliegue automatico de los cambios realizados en la infraestructura
+
+![arquitectura aws](img/Paso11ExecutionHistory.png)
+
+
+*
+*
+*
+*
 
 *  Validar los templates en la consola (ver que no hay errores de sintaxis)
 *    Comando: aws cloudformation validate-template --template-body file://aws-stack.yml
