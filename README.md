@@ -130,11 +130,12 @@ llamó "aws-stack" se utiliza este nombre.
  -
  Se debe configurar el System Manager el cual es un servicio AWS Con el fin de gestionar y almacenar los datos de configuracion y acceso a la base de datos
  - Continuacion se presentan las imagenes con la información del parameter Store:
- - ![arquitectura aws](img/PasoSMParameter.png)
- - ![arquitectura aws](img/PasoSMDatabase.png)
- - ![arquitectura aws](img/PasoSMHost.png)
- - ![arquitectura aws](img/PasoSMPass.png)
- - ![arquitectura aws](img/PasoSMUser.png)
+ - 
+   ![arquitectura aws](img/PasoSMParameter.png)
+   ![arquitectura aws](img/PasoSMDatabase.png)
+   ![arquitectura aws](img/PasoSMHost.png)
+   ![arquitectura aws](img/PasoSMPass.png)
+   ![arquitectura aws](img/PasoSMUser.png)
  
  
 
