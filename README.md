@@ -144,7 +144,12 @@ llamó "aws-stack" se utiliza este nombre.
  Es necesario crear un roll en el servicio AWS IAM el cuarl tiene las siguientes politicas:
 
   ![arquitectura aws](img/Paso11RoleEC2Role.png)
- 
+ -
+ Este rol se ubicara en el template de application.yml y se sustituira en cada uno de los parametros que contengan lo siguiente:
+IamInstanceProfile: 
+          Name: ec2RoleWs
+
+  Se realiza el mismo paso en el PipeLine         
  
 
 
