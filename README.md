@@ -95,7 +95,7 @@ push, la infraestructura se desplegará automáticamente.
 - Paso 9
 - items que se deben seleccionar: fuente del pipeline y seleccionamos codecommit
 El nombre del repositorio y La rama
--
+- Se muestran las ventanas de la creacion del Pipeline
 ![arquitectura aws](img/Paso9pipeline.png)
 ![arquitectura aws](img/Paso9apipeline.png)
   
