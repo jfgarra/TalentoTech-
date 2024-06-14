@@ -108,7 +108,7 @@ El nombre del repositorio y La rama
 - Create or update a stack
 - Stack name: Según cómo esté configurado en el template, como el archivo base se
 llamó "aws-stack" se utiliza este nombre.
--
+
 ![arquitectura aws](img/Paso10Stak.png)
 
  más abajo se pedirá un rol por lo que tendremos que crearlo.
@@ -120,7 +120,7 @@ los Servicios:
 
  ![arquitectura aws](img/Paso10Permissions.png)
 - Se selecciona en la creación del Pipeline el role creado
-- 
+ 
 ![arquitectura aws](img/Paso10Rolename.png)
 
 - ya quedó configurado y se dá "Create"
@@ -130,7 +130,7 @@ los Servicios:
  -
  Se debe configurar el System Manager el cual es un servicio AWS Con el fin de gestionar y almacenar los datos de configuracion y acceso a la base de datos
  - Continuacion se presentan las imagenes con la información del parameter Store:
- - 
+  
    ![arquitectura aws](img/PasoSMParmeter.png)
 
    ![arquitectura aws](img/PasoSMPaDatabase.png)
@@ -144,7 +144,7 @@ los Servicios:
  Es necesario crear un roll en el servicio AWS IAM el cuarl tiene las siguientes politicas:
 
   ![arquitectura aws](img/Paso11RoleEC2Role.png)
- -
+ 
  Este rol se ubicara en el template de application.yml y se sustituira en cada uno de los parametros que contengan lo siguiente:
 IamInstanceProfile: 
           Name: ec2RoleWs
@@ -163,10 +163,10 @@ En el historial del pipeline creado se ve el despliegue automatico de los cambio
 ![arquitectura aws](img/Paso11ExecutionHistory.png)
 
 
-*
-*Monitoreo de la Infraestructura AWSCloudWatch
-*
-*
+
+* Monitoreo de la Infraestructura AWSCloudWatch
+
+
 
 *  Validar los templates en la consola (ver que no hay errores de sintaxis)
 *    Comando: aws cloudformation validate-template --template-body file://aws-stack.yml
